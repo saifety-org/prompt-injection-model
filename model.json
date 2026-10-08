@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "model_id": "saifety-prompt-injection",
+  "task": "prompt-injection classification",
+  "architecture": "logistic regression over hashed character n-grams",
+  "feature_schema": "hashed-char-ngram-v1",
+  "feature_dim": 16384,
+  "weights_file": "weights.json",
+  "weights_sha256": "679108547f662836e3056ddb44a76d0a093bdfaaf12447782a685a4a57474e5a",
+  "labels": {
+    "0": "benign",
+    "1": "attack-on-agent"
+  },
+  "source_repository": "https://github.com/saifety-org/sAIfety",
+  "source_commit": "31aa68f95aa91f189e98fb299976e1b074a4a073",
+  "original_file_sha256": {
+    "internal/classifier/embed.go": "7582790de7a9e398fa5efc10ca879dbd4a84457aa4f78182e908822e4e660f03",
+    "internal/classifier/features.go": "e866ab62dee00e571188e388d09cfbf5e6a7ce76ac1342abbfb5bf341362fcc2",
+    "internal/classifier/model.go": "9f51f8792bd7c234a21ce43356cba7a14667f17d65ae16503b9ee451aabb66e1",
+    "internal/classifier/shipped_test.go": "808a510f02cfbaf8d8c815f21b5bc4041beef7f296d05b8fb23799864ad6e2df",
+    "internal/classifier/weights.json": "679108547f662836e3056ddb44a76d0a093bdfaaf12447782a685a4a57474e5a"
+  },
+  "training_repository": "https://github.com/saifety-org/lab",
+  "training_attribution": "https://github.com/saifety-org/lab/blob/main/datasets/training/ATTRIBUTION.md",
+  "evaluation_note": "Historical metrics in weights.json are same-source held-out metrics, not independent product quality."
+}
