@@ -101,3 +101,9 @@ The linter uses the standard checks (`errcheck`, `govet`, `ineffassign`,
 
 Golden feature-vector tests detect incompatible extractor changes under the same
 feature-schema name; the manifest test validates embedded weights and dimensions.
+
+## Contextual research candidate
+
+[Contextual E5 v4](models/contextual-e5-v4/README.md) has a versioned ONNX
+bundle manifest and dependency-free Go integrity verifier. It remains a
+local research artifact; the default embedded classifier is unchanged.
