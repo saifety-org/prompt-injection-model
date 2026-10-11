@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "saifety-contextual-e5-v4",
+  "version": "v4-onnx-fp32-1",
+  "format": "onnx-fp32-opset17",
+  "production_ready": false,
+  "contract": {
+    "input_contract": "context-json-v2",
+    "serialization": "preserve-validated-json-utf8-v1",
+    "prefix": "query: ",
+    "normalization": "tokenizer.json-only",
+    "max_tokens": 512,
+    "overflow": "error",
+    "labels": {
+      "0": "benign",
+      "1": "attack-on-agent"
+    },
+    "attack_index": 1,
+    "pooling": "masked-mean-l2-normalized",
+    "inputs": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "outputs": [
+      "logits"
+    ]
+  },
+  "calibration": {
+    "threshold": 0.3123948574066162,
+    "decision": "score >= threshold",
+    "method": "frozen v4 validation-only FPR budget 0.01",
+    "thresholds_sha256": "843f15f6d4e6dcc62fa24733d039a67cc32c0ccc0d05dff3a0c532a44aa4f98b"
+  },
+  "provenance": {
+    "base": {
+      "repository": "intfloat/multilingual-e5-small",
+      "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "license": "MIT",
+      "files": {
+        "README.md": "0038de97aee16258cecbad7ffda4b4febd6953e747a00e0ddbc8e6ed241e9c1c",
+        "config.json": "69137736cab8b8903a07fe8afaafdda25aac55415a12a55d1bffa9f581abf959",
+        "model.safetensors": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477",
+        "sentencepiece.bpe.model": "cfc8146abe2a0488e9e2a0c56de7952f7c11ab059eca145a0a727afce0db2865",
+        "special_tokens_map.json": "d05497f1da52c5e09554c0cd874037a083e1dc1b9cfd48034d1c717f1afc07a7",
+        "tokenizer.json": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+        "tokenizer_config.json": "a1d6bc8734a6f635dc158508bef000f8e2e5a759c7d92f984b2c86e5ff53425b"
+      }
+    },
+    "candidate_sha256": "87314daa0251d536598dbb504ba8b8e2856031f65f5032124d3cf5f3b3d93b1f",
+    "training": "lab-py contextual encoder v4; fixed final epoch",
+    "dataset": "saifety-org/lab@6d104a98377d54aefd8d7a69e0030be6d5dfbf81",
+    "base_license": "MIT",
+    "dataset_license": "NOASSERTION",
+    "derived_weights_license": "unresolved; research local bundle only"
+  },
+  "limitations": [
+    "Observed synthetic v4 test FPR 1.43% exceeds 1% target",
+    "Not a production replacement or a fresh blind quality evaluation"
+  ],
+  "files": {
+    "base-model.lock.json": "4a6f92eb0405e6c068d08be319eef591c3b777ddf329d988066ad74aaa6b693b",
+    "candidate.json": "87314daa0251d536598dbb504ba8b8e2856031f65f5032124d3cf5f3b3d93b1f",
+    "model.onnx": "2b86d3b95b59cedffde03a08229682746e361c079a0f585edf9251d3058bde96",
+    "special_tokens_map.json": "38d989b0fdad0fec0c67c14b1f3c8b68184022cf6d4adc5444526ced8653f738",
+    "thresholds-before-test.json": "843f15f6d4e6dcc62fa24733d039a67cc32c0ccc0d05dff3a0c532a44aa4f98b",
+    "tokenizer.json": "6879d3648d0329c894b1cbb0c89096430e24d3c7cf5d359d4ccc87ce585c4ae4",
+    "tokenizer_config.json": "dbdcd9767f0481fd8fd8cd6bce3e73dae7f5c44ce22ae1fde00a66498e71b454"
+  }
+}
